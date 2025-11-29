@@ -18,7 +18,13 @@ public class Student {
   }
 
   public int getCurrentCredits() {
-    return 0;
+    int currentCredits = 0;
+    Course currentCourse;
+    for (ClassSession classSession : enrolledClasses) {
+      currentCourse = classSession.getCourse();
+      currentCredits += currentCourse.getCredits();
+    }
+    return currentCredits;
   }
 
 }
