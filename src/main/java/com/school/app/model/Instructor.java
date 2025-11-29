@@ -5,10 +5,8 @@ import java.util.List;
 public class Instructor {
   private String id;
   private String name;
-  // contains courses ids
-  private List<String> qualifiedCourses;
-  // classes currently being taught
-  private List<ClassSession> teachingAssignment;
+  private List<String> qualifiedCourses; // contains courses ids
+  private List<ClassSession> teachingAssignment; // classes currently being taught
 
   public Instructor(String theId, String theName,
       List<String> theQualifiedCourses,
