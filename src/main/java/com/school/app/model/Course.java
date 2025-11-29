@@ -21,4 +21,8 @@ public class Course {
   public int getCredits() {
     return this.credits;
   }
+
+  public String getCourseId() {
+    return this.courseId;
+  }
 }
