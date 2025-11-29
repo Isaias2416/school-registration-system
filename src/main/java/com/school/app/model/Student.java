@@ -17,4 +17,9 @@ public class Student {
     major = theMajor;
     enrolledClasses = theEnrolledClasses;
   }
+
+  public int getCurrentCredits() {
+    return 0;
+  }
+
 }
