@@ -23,4 +23,8 @@ public class ClassSession {
     maxCapacity = theMaxCapacity;
     enrolledStudents = theEnrolledStudents;
   }
+
+  public boolean isFull() {
+    return enrolledStudents.size() >= maxCapacity;
+  }
 }
