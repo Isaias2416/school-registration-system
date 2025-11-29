@@ -29,7 +29,7 @@ public class Student {
   }
 
   public List<ClassSession> getEnrolledClasses() {
-    return new ArrayList<ClassSession>(enrolledClasses);
+    return new ArrayList<>(enrolledClasses);
   }
 
   public String getId() {
