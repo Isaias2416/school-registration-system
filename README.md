@@ -1,2 +1,2 @@
-# school-registration-system
-Desktop Administrative Application for a college registrar
+# School Registration System
+A desktop administrative application for a college registrar
