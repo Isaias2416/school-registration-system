@@ -25,7 +25,7 @@ public class ClassSession {
   }
 
   public Course getCourse() {
-    return course;
+    return new Course(this.course);
   }
 
   public Instructor getInstructor() {
