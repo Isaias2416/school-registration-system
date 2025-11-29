@@ -16,6 +16,7 @@ A desktop administrative application for a college registrar.
 | Task | Assigned To | Status |
 | ------------- | -------------- | -------------- |
 | InstructorService.java | Jhonatan | Completed |
+| RegistrationService.java | Jhonatan | In Progress |
 
 ## Project File Structure
 
