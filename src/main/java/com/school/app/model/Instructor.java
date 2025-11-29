@@ -9,6 +9,13 @@ public class Instructor {
   private List<ClassSession> teachingAssignment; // classes currently being taught
 
   public Instructor(String theId, String theName,
+      List<String> theQualifiedCourses) {
+    this(
+        theId, theName,
+        theQualifiedCourses, null);
+  }
+
+  public Instructor(String theId, String theName,
       List<String> theQualifiedCourses,
       List<ClassSession> theTeachingAssignment) {
     id = theId;
@@ -24,10 +31,8 @@ public class Instructor {
 
   public int getCurrentLoad() {
     int currentLoad = 0;
-    Course currentCourse;
     for (ClassSession classSession : teachingAssignment) {
-      currentCourse = classSession.getCourse();
-      currentLoad += currentCourse.getCredits();
+      currentLoad += classSession.getCourse().getCredits();
     }
     return currentLoad;
   }
