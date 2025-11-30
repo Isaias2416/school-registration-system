@@ -48,4 +48,5 @@ public class ClassSession {
   public boolean isFull() {
     return this.enrolledStudents.size() >= this.maxCapacity;
   }
+
 }
