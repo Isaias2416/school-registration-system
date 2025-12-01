@@ -1,5 +1,6 @@
 package com.school.app.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClassSession {
@@ -22,6 +23,15 @@ public class ClassSession {
     sectionNumber = theSectionNumber;
     maxCapacity = theMaxCapacity;
     enrolledStudents = theEnrolledStudents;
+  }
+
+  public ClassSession(Course theCourse,
+      Instructor theInstructor,
+      Classroom theClassroom,
+      int theMaxCapacity) {
+    this(theCourse, theInstructor,
+        theClassroom, 0,
+        theMaxCapacity, null);
   }
 
   public Course getCourse() {
