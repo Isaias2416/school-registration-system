@@ -37,6 +37,11 @@ public class Instructor {
     return currentLoad;
   }
 
+  // method not specified if lab instructions
+  public void addTeachingAssignment(ClassSession theClassSession) {
+    this.teachingAssignment.add(theClassSession);
+  }
+
   public String toString() {
     return this.name;
   }
