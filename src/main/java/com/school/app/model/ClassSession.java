@@ -55,6 +55,11 @@ public class ClassSession {
     return sectionNumber;
   }
 
+  // Method not specified in project instructions
+  // This method is similar to the one in Student.java
+  public List<Student> getEnrolledStudents() {
+    return new ArrayList<>(enrolledStudents);
+  }
   public boolean isFull() {
     return this.enrolledStudents.size() >= this.maxCapacity;
   }
