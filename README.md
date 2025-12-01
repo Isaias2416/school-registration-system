@@ -6,7 +6,7 @@ A desktop administrative application for a college registrar.
 ### Models
 | Task | Assigned To | Status |
 | ------------- | -------------- | -------------- |
-| Course.java | Isaias | In Progress |
+| Course.java | Isaias | Completed |
 | Classroom.java | Camille | Not Started |
 | Student.java | Jhonatan | In Progress |
 | ClassSession.java | Jhonatan | In Progress |
