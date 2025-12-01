@@ -72,4 +72,29 @@ public class RegistrationService {
         theClassroom, theCapacity);
   }
 
+  public void registerStudent(Student theStudent,
+      ClassSession theSection) {
+
+    // preconditions: 1. Student is not it the class, 2. the "section"
+    // is not full, and the credits are below 18
+    if (theSection.getEnrolledStudents().contains(theStudent)) {
+      System.out.println("The student is already in the class");
+      return;
+    }
+    if (theSection.isFull()) {
+      // Could throw an exception
+      System.out.println("The class session is full");
+      return;
+    }
+
+    if (theStudent.getCurrentCredits() +
+        theSection.getCourse().getCredits() > 18) {
+      System.out.println("Student and Course credits surpass 18");
+      return;
+    }
+
+    theSection.addEnrolledStudent(theStudent);
+    theStudent.addEnrolledClass(theSection);
+  }
+
 }
