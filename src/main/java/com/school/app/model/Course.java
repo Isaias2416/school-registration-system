@@ -25,4 +25,8 @@ public class Course {
   public String getCourseId() {
     return this.courseId;
   }
+  
+  public String getName(){
+    return this.name;
+  }
 }
