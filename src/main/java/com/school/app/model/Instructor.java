@@ -1,6 +1,15 @@
 package com.school.app.model;
 
 import java.util.List;
+import java.util.ArrayList;
+
+/**
+ * Methods:
+ * 1: getQualifiedCourses
+ * 2: canTeach
+ * 3: getCurrentLoad
+ * 4: addTeachingAssignment
+ */
 
 public class Instructor {
   private String id;
@@ -22,6 +31,10 @@ public class Instructor {
     name = theName;
     qualifiedCourses = theQualifiedCourses;
     teachingAssignment = theTeachingAssignment;
+  }
+
+  public List<String> getQualifiedCourses() {
+    return new ArrayList<String>(this.qualifiedCourses);
   }
 
   public boolean canTeach(Course theCourse) {
