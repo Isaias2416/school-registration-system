@@ -5,10 +5,9 @@ import java.util.ArrayList;
 
 /**
  * Methods:
- * 1: getQualifiedCourses
- * 2: canTeach
- * 3: getCurrentLoad
- * 4: addTeachingAssignment
+ * 1: boolean canTeach
+ * 2: int getCurrentLoad
+ * 3: void addTeachingAssignment
  */
 
 public class Instructor {
