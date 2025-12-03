@@ -3,6 +3,16 @@ package com.school.app.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Methods:
+ * 1. int getCurrentCredits
+ * 2. List<ClassSession> getEnrolledClasses
+ * 3. void addEnrolledClass
+ * 4. String getId
+ * 5. String getName
+ * 6. String getMajor
+ */
+
 public class Student {
   private String id;
   private String name;
