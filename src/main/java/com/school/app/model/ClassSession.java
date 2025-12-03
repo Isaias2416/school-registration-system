@@ -3,6 +3,12 @@ package com.school.app.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Methods:
+ * 1. void addEnrolledStudents
+ * 2. boolean isFull()
+ */
+
 public class ClassSession {
   private Course course;
   private Instructor instructor;
