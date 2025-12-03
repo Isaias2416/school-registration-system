@@ -29,9 +29,12 @@ public class ClassSession {
       Instructor theInstructor,
       Classroom theClassroom,
       int theMaxCapacity) {
-    this(theCourse, theInstructor,
-        theClassroom, 0,
-        theMaxCapacity, null);
+    course = theCourse;
+    instructor = theInstructor;
+    classroom = theClassroom;
+    sectionNumber = 0;
+    maxCapacity = theMaxCapacity;
+    enrolledStudents = new ArrayList<>();
   }
 
   public Course getCourse() {
