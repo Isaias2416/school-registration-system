@@ -3,12 +3,8 @@ package com.school.app.view.cli;
 import java.util.Scanner;
 
 public class MainMenu {
-  // Create Dashboard and Administration
-  // Methods:
-  // 1. displayMenu
-  // 2. displayDashboard
-  // 3. displayAdministration
-  public void displayMenu() {
+
+  public static void display() {
     Scanner keyboard = new Scanner(System.in);
     int userOption;
 
@@ -16,6 +12,7 @@ public class MainMenu {
     System.out.println("1. Dashboard");
     System.out.println("2. Administration");
 
+    System.out.print("Your choice: ");
     userOption = keyboard.nextInt();
 
     switch (userOption) {
@@ -27,6 +24,8 @@ public class MainMenu {
 
       default:
         // Handle Input
+        System.out.println("Invalid choice");
+        System.exit(0);
         break;
     }
 
