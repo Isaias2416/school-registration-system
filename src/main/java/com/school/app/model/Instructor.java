@@ -19,9 +19,10 @@ public class Instructor {
 
   public Instructor(String theId, String theName,
       List<String> theQualifiedCourses) {
-    this(
-        theId, theName,
-        theQualifiedCourses, null);
+    id = theId;
+    name = theName;
+    qualifiedCourses = theQualifiedCourses;
+    teachingAssignment = new ArrayList<>();
   }
 
   public Instructor(String theId, String theName,
@@ -37,6 +38,14 @@ public class Instructor {
     return new ArrayList<String>(this.qualifiedCourses);
   }
 
+  public String getId() {
+    return this.id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
   public boolean canTeach(Course theCourse) {
     String theCourseId = theCourse.getCourseId();
     return this.qualifiedCourses.contains(theCourseId);
@@ -44,7 +53,7 @@ public class Instructor {
 
   public int getCurrentLoad() {
     int currentLoad = 0;
-    for (ClassSession classSession : teachingAssignment) {
+    for (ClassSession classSession : this.teachingAssignment) {
       currentLoad += classSession.getCourse().getCredits();
     }
     return currentLoad;
@@ -55,7 +64,6 @@ public class Instructor {
     this.teachingAssignment.add(theClassSession);
   }
 
-  @Override
   public String toString() {
     return this.name;
   }
