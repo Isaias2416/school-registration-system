@@ -86,8 +86,24 @@ public class RegistrationService {
     File classSessionRecords = new File(filePath);
 
     // Logic to handle section numbers go theCourse
-    //
-    // ....
+    // COURDEID-SECTIONNUM ex(MATH11-2)
+
+    List<ClassSession> classSections = new ArrayList<>(
+        ClassSessionService.load().values());
+
+    List<ClassSession> duplicatedClassSections = new ArrayList<>();
+    for (ClassSession classSection : classSections) {
+      if (classSection.getCourse().getName().equals(theClassSection.getCourse().getName())) {
+        duplicatedClassSections.add(classSection);
+      }
+    }
+
+    if (!duplicatedClassSections.isEmpty()) {
+      ClassSession lastClassSection = duplicatedClassSections.get(classSections.size() - 1);
+      int lastClassSectionNumber = lastClassSection.getSectionNumber();
+      int newSectionNumber = lastClassSectionNumber + 1;
+      theClassSection.setSectionNumber(newSectionNumber);
+    }
 
     // true for append, false for overwrite
     try (FileWriter writer = new FileWriter(classSessionRecords, true)) {
