@@ -113,9 +113,10 @@ public class RegistrationService {
 
       writer.append(
           theClassSection.getCourse().getCourseId() + "," +
-              theClassSection.getSectionNumber() + "," +
               theClassSection.getInstructor().getName() + "," +
               theClassSection.getClassroom().getRoomNumber() + "," +
+              theClassSection.getSectionNumber() + "," +
+              theClassSection.getMaxCapacity() + "," +
               theClassSection.getEnrolledStudents().size());
     } catch (Exception e) {
       System.out.println(e);
