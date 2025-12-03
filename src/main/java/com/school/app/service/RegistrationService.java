@@ -10,10 +10,10 @@ import java.io.FileWriter;
 
 /**
  * Methods:
- * 1. findElegibleInstructor(...)
- * 2. createClassSection(...)
- * 3. saveClassSection(...)
- * 4. registerStudent(...)
+ * 1. static findElegibleInstructor(...)
+ * 2. non-static createClassSection(...)
+ * 3. static saveClassSection(...)
+ * 4. non-static registerStudent(...)
  */
 
 public class RegistrationService {
