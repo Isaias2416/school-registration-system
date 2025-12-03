@@ -79,6 +79,10 @@ public class ClassSession {
     return sectionNumber;
   }
 
+  public void setSectionNumber(int theSectionNumber) {
+    this.sectionNumber = theSectionNumber;
+  }
+
   // Method not specified in project instructions
   // This method is similar to the one in Student.java
   public List<Student> getEnrolledStudents() {
