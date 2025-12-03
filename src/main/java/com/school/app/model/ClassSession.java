@@ -53,7 +53,7 @@ public class ClassSession {
     course = theCourse;
     instructor = theInstructor;
     classroom = theClassroom;
-    sectionNumber = 0;
+    sectionNumber = 1;
     maxCapacity = theMaxCapacity;
     enrolledStudents = new ArrayList<>();
   }
