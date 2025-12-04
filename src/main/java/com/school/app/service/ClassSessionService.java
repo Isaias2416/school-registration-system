@@ -25,15 +25,22 @@ public class ClassSessionService {
 
     // try-resource closes file automatically
     try (Scanner scanner = new Scanner(new File(filePath))) {
-      scanner.useDelimiter(",|\\n"); // match: comma(,) or new line(\n)
-
       while (scanner.hasNext()) {
-        String courseField = scanner.next();
-        String instructorField = scanner.next();
-        String classroomField = scanner.next();
-        int sectionNumberField = scanner.nextInt();
-        int maxCapacityField = scanner.nextInt();
-        int enrolledStudentsField = scanner.nextInt();
+        String line = scanner.next();
+
+        if (line.trim().isEmpty()) {
+          continue;
+        }
+
+        String[] columns = line.split(",");
+
+        String courseField = columns[0];
+        String instructorIdField = columns[1];
+        String classroomField = columns[2];
+
+        int sectionNumberField = Integer.parseInt(columns[3]);
+        int maxCapacityField = Integer.parseInt(columns[4]);
+        int enrolledStudentsField = Integer.parseInt(columns[5]);
 
         Map<String, Course> courses = CourseService.load();
         Course course = courses.get(courseField);
