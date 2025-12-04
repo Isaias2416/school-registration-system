@@ -24,7 +24,8 @@ public class InstructorService {
     Map<String, Instructor> instructors = new HashMap<>();
 
     // Relative path to Instructor.csv (expects data/Instructor.csv at project root)
-      Path filePath = Paths.get("data", "Instructor.csv");
+    Path path = Paths.get("data", "Instructor.csv");
+    String filePath = String.valueOf(path);
 
     // try-resource closes file automatically
     try (Scanner scanner = new Scanner(new File(filePath))) {

@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * Methods:
  * 1. static findElegibleInstructor(...)
@@ -76,12 +79,8 @@ public class RegistrationService {
   }
 
   public static void saveClassSection(ClassSession theClassSection) {
-    String homeDir = "/home/jhonatan/";
-    String fileDir = homeDir +
-        "Projects/Github/jhonatanparada499/" +
-        "school-registration-system/data/";
-    String fileName = "ClassSession.csv";
-    String filePath = fileDir + fileName;
+    Path path = Paths.get("data", "ClassSession.csv");
+    String filePath = String.valueOf(path);
 
     File classSessionRecords = new File(filePath);
 

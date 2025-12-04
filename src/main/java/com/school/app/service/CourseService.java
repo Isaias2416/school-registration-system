@@ -13,8 +13,10 @@ public class CourseService {
   public static Map<String, Course> load() {
     Map<String, Course> courses = new HashMap<>();
 
-    // Relative path to ClassSession.csv (expects data/ClassSession.csv at project root)
-    Path filePath = Paths.get("data", "ClassSession.csv");
+    // Relative path to ClassSession.csv (expects data/ClassSession.csv at project
+    // root)
+    Path path = Paths.get("data", "ClassSession.csv");
+    String filePath = String.valueOf(path);
 
     // try-resource closes file automatically
     try (Scanner scanner = new Scanner(new File(filePath))) {

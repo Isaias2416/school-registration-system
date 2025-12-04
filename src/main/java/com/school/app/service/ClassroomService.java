@@ -13,8 +13,9 @@ public class ClassroomService {
   public static Map<String, Classroom> load() {
     Map<String, Classroom> classrooms = new HashMap<>();
 
-   // Relative path to Classroom.csv (expects data/Classroom.csv at project root)
-      Path filePath = Paths.get("data", "Classroom.csv");
+    // Relative path to Classroom.csv (expects data/Classroom.csv at project root)
+    Path path = Paths.get("data", "Classroom.csv");
+    String filePath = String.valueOf(path);
 
     // try-resource closes file automatically
     try (Scanner scanner = new Scanner(new File(filePath))) {
