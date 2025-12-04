@@ -11,12 +11,8 @@ public class CourseService {
   public static Map<String, Course> load() {
     Map<String, Course> courses = new HashMap<>();
 
-    String homeDir = "/home/jhonatan/";
-    String fileDir = homeDir +
-        "Projects/Github/jhonatanparada499/" +
-        "school-registration-system/data/";
-    String fileName = "Course.csv";
-    String filePath = fileDir + fileName;
+    // Relative path to ClassSession.csv (expects data/ClassSession.csv at project root)
+    Path filePath = Paths.get("data", "ClassSession.csv");
 
     // try-resource closes file automatically
     try (Scanner scanner = new Scanner(new File(filePath))) {
