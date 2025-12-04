@@ -56,7 +56,7 @@ public class Student {
     return this.major;
   }
 
-   public void setId(String id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -71,7 +71,4 @@ public class Student {
   public void setEnrolledClasses(List<ClassSession> enrolledClasses) {
     this.enrolledClasses = enrolledClasses;
   }
-}
-
-
 }
