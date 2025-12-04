@@ -85,11 +85,8 @@ public class RegistrationService {
 
     File classSessionRecords = new File(filePath);
 
-    // Logic to handle section numbers go theCourse
-    // COURDEID-SECTIONNUM ex(MATH11-2)
-
     List<ClassSession> classSections = new ArrayList<>(
-        ClassSessionService.load().values());
+        ClassSessionService.load());
 
     List<ClassSession> duplicatedClassSections = new ArrayList<>();
     for (ClassSession classSection : classSections) {
