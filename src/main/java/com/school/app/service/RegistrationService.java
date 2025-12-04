@@ -96,7 +96,8 @@ public class RegistrationService {
     }
 
     if (!duplicatedClassSections.isEmpty()) {
-      ClassSession lastClassSection = duplicatedClassSections.get(classSections.size() - 1);
+      ClassSession lastClassSection = duplicatedClassSections.get(
+          duplicatedClassSections.size() - 1);
       int lastClassSectionNumber = lastClassSection.getSectionNumber();
       int newSectionNumber = lastClassSectionNumber + 1;
       theClassSection.setSectionNumber(newSectionNumber);
