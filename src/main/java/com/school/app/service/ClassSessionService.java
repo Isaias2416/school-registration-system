@@ -46,7 +46,7 @@ public class ClassSessionService {
         Course course = courses.get(courseField);
 
         Map<String, Instructor> instructors = InstructorService.load();
-        Instructor instructor = instructors.get(instructorField);
+        Instructor instructor = instructors.get(instructorIdField);
 
         Map<String, Classroom> classrooms = ClassroomService.load();
         Classroom classroom = classrooms.get(classroomField);
