@@ -34,6 +34,13 @@ public class Instructor {
     teachingAssignment = theTeachingAssignment;
   }
 
+  public Instructor(Instructor theInstructor) {
+    id = theInstructor.getId();
+    name = theInstructor.getName();
+    qualifiedCourses = theInstructor.getQualifiedCourses();
+    teachingAssignment = theInstructor.getTeachingAssignment();
+  }
+
   public List<String> getQualifiedCourses() {
     return new ArrayList<String>(this.qualifiedCourses);
   }
@@ -44,6 +51,10 @@ public class Instructor {
 
   public String getName() {
     return this.name;
+  }
+
+  public List<ClassSession> getTeachingAssignment() {
+    return new ArrayList<>(this.teachingAssignment);
   }
 
   public boolean canTeach(Course theCourse) {
