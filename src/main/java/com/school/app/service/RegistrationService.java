@@ -111,14 +111,14 @@ public class RegistrationService {
 
       writer.write(
           theClassSection.getCourse().getCourseId() + "," +
-              theClassSection.getInstructor().getName() + "," +
+              theClassSection.getInstructor().getId() + "," +
               theClassSection.getClassroom().getRoomNumber() + "," +
               theClassSection.getSectionNumber() + "," +
               theClassSection.getMaxCapacity() + "," +
               theClassSection.getEnrolledStudents().size());
     } catch (Exception e) {
-      System.out.println(e);
       System.out.println("This execption message is from SaveClassScection");
+      System.out.println(e);
     }
   }
 
