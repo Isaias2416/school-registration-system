@@ -80,15 +80,20 @@ public class RegistrationService {
       }
     }
 
-    // Does storing (this) to the system mean to write it to Classroom.csv?
-    // It would make sense to have a ClassSession.csv file
-    // ...
+    // Calculate class section number dynamically
+    int newClassSectionNumber = 1;
+    if (!duplicatedclassSections.isEmpty()) {
+      newClassSectionNumber = duplicatedclassSections.size() + 1;
+    }
 
-    // The method is called createClassSection but it returns a ClassSession
-    // object? In my opinion, the word section should no be used.
     return new ClassSession(
-        theCourse, theInstructor,
-        theClassroom, theCapacity);
+        newId,
+        theCourse,
+        theInstructor,
+        theClassroom,
+        newClassSectionNumber,
+        theCapacity,
+        0);
   }
 
   public static void saveClassSection(ClassSession theClassSection) {
