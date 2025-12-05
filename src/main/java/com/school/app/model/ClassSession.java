@@ -32,6 +32,24 @@ public class ClassSession {
     enrolledStudents = theEnrolledStudents;
   }
 
+  public ClassSession(
+      int theId,
+      Course theCourse,
+      Instructor theInstructor,
+      Classroom theClassroom,
+      int theSectionNumber,
+      int theMaxCapacity,
+      int theEnrolledStudents) {
+    id = theId;
+    course = theCourse;
+    instructor = theInstructor;
+    classroom = theClassroom;
+    sectionNumber = theSectionNumber;
+    maxCapacity = theMaxCapacity;
+    enrolledStudents = new ArrayList<>(
+        theEnrolledStudents);
+  }
+
   public ClassSession(Course theCourse,
       Instructor theInstructor,
       Classroom theClassroom,
