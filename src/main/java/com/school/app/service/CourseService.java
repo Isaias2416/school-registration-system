@@ -15,7 +15,7 @@ public class CourseService {
 
     // Relative path to ClassSession.csv (expects data/ClassSession.csv at project
     // root)
-    Path path = Paths.get("data", "ClassSession.csv");
+    Path path = Paths.get("data", "Course.csv");
     String filePath = String.valueOf(path);
 
     // try-resource closes file automatically
