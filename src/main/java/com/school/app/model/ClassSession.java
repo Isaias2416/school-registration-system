@@ -3,6 +3,8 @@ package com.school.app.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.school.app.service.StudentService;
+
 /**
  * Methods:
  * 1. void addEnrolledStudents
@@ -11,70 +13,46 @@ import java.util.List;
 
 public class ClassSession {
   private int id;
-  private Course course;
-  private Instructor instructor;
-  private Classroom classroom;
+  private String course;
+  private String instructor;
+  private String classroom;
   private int sectionNumber;
   private int maxCapacity;
-  private List<Student> enrolledStudents;
+  private List<String> enrolledIdStudents;
 
-  public ClassSession(Course theCourse,
-      Instructor theInstructor,
-      Classroom theClassroom,
-      int theSectionNumber,
-      int theMaxCapacity,
-      List<Student> theEnrolledStudents) {
-    course = theCourse;
-    instructor = theInstructor;
-    classroom = theClassroom;
-    sectionNumber = theSectionNumber;
-    maxCapacity = theMaxCapacity;
-    enrolledStudents = theEnrolledStudents;
-  }
-
+  // constructor to create a new class section
   public ClassSession(
       int theId,
-      Course theCourse,
-      Instructor theInstructor,
-      Classroom theClassroom,
+      String theCourse,
+      String theInstructor,
+      String theClassroom,
       int theSectionNumber,
-      int theMaxCapacity,
-      int theEnrolledStudents) {
+      int theMaxCapacity) {
     id = theId;
     course = theCourse;
     instructor = theInstructor;
     classroom = theClassroom;
     sectionNumber = theSectionNumber;
     maxCapacity = theMaxCapacity;
-    enrolledStudents = new ArrayList<>(
-        theEnrolledStudents);
+    enrolledIdStudents = new ArrayList<>();
   }
 
-  public ClassSession(Course theCourse,
-      Instructor theInstructor,
-      Classroom theClassroom,
+  // constructor used to compile existing records
+  public ClassSession(
+      int theId,
+      String theCourse,
+      String theInstructor,
+      String theClassroom,
       int theSectionNumber,
       int theMaxCapacity,
-      int theEnrolledStudents) {
+      List<String> theEnrolledStudents) {
+    id = theId;
     course = theCourse;
     instructor = theInstructor;
     classroom = theClassroom;
     sectionNumber = theSectionNumber;
     maxCapacity = theMaxCapacity;
-    enrolledStudents = new ArrayList<>(
-        theEnrolledStudents);
-  }
-
-  public ClassSession(Course theCourse,
-      Instructor theInstructor,
-      Classroom theClassroom,
-      int theMaxCapacity) {
-    course = theCourse;
-    instructor = theInstructor;
-    classroom = theClassroom;
-    sectionNumber = 1;
-    maxCapacity = theMaxCapacity;
-    enrolledStudents = new ArrayList<>();
+    enrolledIdStudents = theEnrolledStudents;
   }
 
   public int getId() {
