@@ -15,7 +15,7 @@ public class Instructor {
   private String id;
   private String name;
   private List<String> qualifiedCourses; // contains courses ids
-  private List<ClassSession> teachingAssignment; // classes currently being taught
+  private List<String> teachingAssignment; // classes currently being taught
 
   public Instructor(String theId, String theName,
       List<String> theQualifiedCourses) {
@@ -27,7 +27,7 @@ public class Instructor {
 
   public Instructor(String theId, String theName,
       List<String> theQualifiedCourses,
-      List<ClassSession> theTeachingAssignment) {
+      List<String> theTeachingAssignment) {
     id = theId;
     name = theName;
     qualifiedCourses = theQualifiedCourses;
@@ -53,7 +53,7 @@ public class Instructor {
     return this.name;
   }
 
-  public List<ClassSession> getTeachingAssignment() {
+  public List<String> getTeachingAssignment() {
     return new ArrayList<>(this.teachingAssignment);
   }
 
