@@ -3,7 +3,6 @@ package com.school.app.view.cli;
 import java.util.Map;
 import java.util.List;
 
-import com.school.app.service.InstructorService;
 import com.school.app.service.RegistrationService;
 import com.school.app.service.ClassroomService;
 import com.school.app.service.CourseService;
@@ -43,21 +42,13 @@ public class ClassSectionCreator {
     while (!validInstructorChoice) {
       System.out.print("Enter Instructor ID: ");
       String instructorIdChoice = keyboard.nextLine().trim();
-      Map<String, Instructor> instructors = InstructorService.load();
-      Instructor instructorChoice = instructors.get(instructorIdChoice);
-
-      if (instructorChoice.getCurrentLoad() > 9) {
-        System.out.println("That instructor surpassed credit limit");
-        System.out.println("Please try another one");
-        continue;
-      }
 
       validInstructorChoice = true;
 
-      Map<String, Classroom> classrooms = ClassroomService.load();
       System.out.println("List of available classrooms: ");
       System.out.println("Room Number | Has Computer | Has smartboard");
 
+      Map<String, Classroom> classrooms = ClassroomService.load();
       // print availbe rooms
       for (Classroom classroom : classrooms.values()) {
         System.out.println(
@@ -66,8 +57,8 @@ public class ClassSectionCreator {
                 classroom.hasSmartboard());
       }
       System.out.print("Enter Room Number: ");
-      String classroomNumberChoice = keyboard.next();
-      Classroom classroomChoice = classrooms.get(classroomNumberChoice);
+      String classroomNumberIdChoice = keyboard.next();
+      // Classroom classroomChoice = classrooms.get(classroomNumberChoice);
 
       System.out.print("Enter Classroom Maximum Capacity: ");
       int maxCapacityChoice = keyboard.nextInt();
@@ -75,9 +66,9 @@ public class ClassSectionCreator {
       RegistrationService newRegistration = new RegistrationService();
       try {
         ClassSession newClassSection = newRegistration.createClassSection(
-            courseChoice,
-            instructorChoice,
-            classroomChoice,
+            courseIdChoice,
+            instructorIdChoice,
+            classroomNumberIdChoice,
             maxCapacityChoice);
         // Writes the new class section record to ClassSession.csv
         RegistrationService.saveClassSection(newClassSection);
