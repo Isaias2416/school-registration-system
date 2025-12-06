@@ -5,31 +5,36 @@ import java.util.Scanner;
 public class MainMenu {
 
   public static void display() {
-    Scanner keyboard = new Scanner(System.in);
-    int userOption;
+    while (true) {
 
-    System.out.println("--- School System Menu ---");
-    System.out.println("1. Dashboard");
-    System.out.println("2. Administration");
+      Scanner keyboard = new Scanner(System.in);
+      int userOption;
 
-    System.out.print("Your choice: ");
-    userOption = keyboard.nextInt();
+      System.out.println("--- School System Menu ---");
+      System.out.println("1. Dashboard");
+      System.out.println("2. Administration");
+      System.out.println("3. Exit");
 
-    switch (userOption) {
-      case 1:
-        Dashboard.display();
-      case 2:
-        Administration.display();
-        break;
+      System.out.print("Your choice: ");
+      userOption = keyboard.nextInt();
 
-      default:
-        // Handle Input
-        System.out.println("Invalid choice");
-        System.exit(0);
-        break;
+      switch (userOption) {
+        case 1:
+          Dashboard.display();
+          break;
+        case 2:
+          Administration.display();
+          break;
+        case 3:
+          System.out.println("Bye");
+          keyboard.close();
+          System.exit(0);
+
+        default:
+          // Handle Input
+          System.out.println("Invalid choice");
+          continue;
+      }
     }
-
-    keyboard.close();
   }
-
 }
