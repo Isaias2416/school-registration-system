@@ -3,8 +3,6 @@ package com.school.app.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.school.app.service.StudentService;
-
 /**
  * Methods:
  * 1. void addEnrolledStudents

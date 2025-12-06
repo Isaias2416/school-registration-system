@@ -1,7 +1,12 @@
 package com.school.app.model;
 
 import java.util.List;
+
+import com.school.app.service.ClassSessionService;
+import com.school.app.service.CourseService;
+
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Methods:
@@ -54,7 +59,14 @@ public class Instructor {
   }
 
   public List<String> getTeachingAssignment() {
-    return new ArrayList<>(this.teachingAssignment);
+    List<String> teachingAssignment = new ArrayList<>();
+    Map<Integer, ClassSession> classSections = ClassSessionService.load();
+    for (ClassSession classSection : classSections.values()) {
+      if (classSection.getInstructor().equals(this.getId())) {
+        teachingAssignment.add(classSection.getCourse());
+      }
+    }
+    return teachingAssignment;
   }
 
   // Setters
@@ -80,19 +92,14 @@ public class Instructor {
   }
 
   public int getCurrentLoad() {
-    // int currentLoad = 0;
-    // for (ClassSession classSession : this.teachingAssignment) {
-    // currentLoad += classSession.getCourse().getCredits();
-    // }
-    // return currentLoad;
-    System.out.println("still working in get current load");
-    return 0;
+    int currentLoad = 0;
+    Map<String, Course> courses = CourseService.load();
+    for (String courseId : this.getTeachingAssignment()) {
+      Course course = courses.get(courseId);
+      currentLoad += course.getCredits();
+    }
+    return currentLoad;
   }
-
-  // method not specified if lab instructions
-  // public void addTeachingAssignment(ClassSession theClassSession) {
-  // this.teachingAssignment.add(theClassSession);
-  // }
 
   public String toString() {
     return this.name;
