@@ -3,14 +3,15 @@ package com.school.app.service;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 import com.school.app.model.ClassSession;
-import com.school.app.model.Course;
-import com.school.app.model.Instructor;
-import com.school.app.model.Classroom;
+
+import java.util.List;
 
 public class ClassSessionService {
   public static Map<Integer, ClassSession> load() {
@@ -30,43 +31,46 @@ public class ClassSessionService {
           continue;
         }
 
+        // if a field is empty it must have a blank space
+        // it has to do with how split works
+        // make sure csv is , , and not ,,
         String[] columns = line.split(",");
 
         int idField = Integer.parseInt(columns[0]);
-        String courseField = columns[1];
-        String instructorIdField = columns[2];
-        String classroomField = columns[3];
+        String courseIdField = columns[1].trim();
+        String instructorIdField = columns[2].trim();
+        String classroomIdField = columns[3].trim();
+        int sectionNumberField = Integer.parseInt(columns[4].trim());
+        int maxCapacityField = Integer.parseInt(columns[5].trim());
+        String enrolledStudentIdsField = columns[6].trim();
 
-        int sectionNumberField = Integer.parseInt(columns[3]);
-        int maxCapacityField = Integer.parseInt(columns[4]);
-        int enrolledStudentsField = Integer.parseInt(columns[5]);
+        String[] array = enrolledStudentIdsField.split("\\|");
+        List<String> enrolledStudentsIds = new ArrayList<>();
 
-        Map<String, Course> courses = CourseService.load();
-        Course course = courses.get(courseField);
-
-        Map<String, Instructor> instructors = InstructorService.load();
-        Instructor instructor = instructors.get(instructorIdField);
-
-        Map<String, Classroom> classrooms = ClassroomService.load();
-        Classroom classroom = classrooms.get(classroomField);
+        if (!enrolledStudentIdsField.trim().isEmpty()) {
+          // cannot be = to Arrayaslist for add method later
+          enrolledStudentsIds.addAll(Arrays.asList(array));
+        }
 
         ClassSession classSection = new ClassSession(
             idField,
-            course,
-            instructor,
-            classroom,
+            courseIdField,
+            instructorIdField,
+            classroomIdField,
             sectionNumberField,
             maxCapacityField,
-            enrolledStudentsField);
+            enrolledStudentsIds);
 
+        System.out.println("ClassSection passed the test");
         classSections.put(
             idField,
             classSection);
+        System.out.println("put action passed the test");
       }
 
     } catch (Exception e) {
       System.out.println("From ClassSessionService");
-      e.printStackTrace();
+      System.out.println(e);
     }
 
     return classSections;
