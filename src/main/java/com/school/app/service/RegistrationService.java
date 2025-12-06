@@ -106,29 +106,58 @@ public class RegistrationService {
   public static void saveClassSection(ClassSession theClassSection) {
     Path path = Paths.get("data", "ClassSession.csv");
     String filePath = String.valueOf(path);
+    File classSectionRecords = new File(filePath);
+    // have to convert the id to String because of CSVReader
+    int otherClassSectionId = theClassSection.getId();
 
-    File classSessionRecords = new File(filePath);
+    // read records
+    Map<Integer, ClassSession> allRecords = ClassSessionService.load();
 
-    // Validate if the class section already exists,
-    // if so, remove it because below will be
-    // rewritten but with updated values of enrolled
-    // students
-    // add dependency to maven project
+    // filter duplicate records based on the first column (Id)
+    // filteredRecords return unique records
+    List<ClassSession> filteredRecords = new ArrayList<>();
+    for (ClassSession classSection : allRecords.values()) {
+      if (classSection.getId() != otherClassSectionId) {
+        filteredRecords.add(classSection);
+      }
+    }
 
-    // true for append, false for overwrite
-    try (FileWriter writer = new FileWriter(classSessionRecords, true)) {
-      if (classSessionRecords.length() > 0) {
+    // the filteredRecords will help determenie whether there is duplicates
+    // Rewrite whole file without the duplicate record (it will be updated below)
+    // false for overwrite
+    if (filteredRecords.size() < allRecords.size()) {
+      try (FileWriter writer = new FileWriter(classSectionRecords, false)) {
+        for (ClassSession classSection : filteredRecords) {
+          writer.write(
+              classSection.getId() + "," +
+                  classSection.getCourse() + "," +
+                  classSection.getInstructor() + "," +
+                  classSection.getClassroom() + "," +
+                  classSection.getSectionNumber() + "," +
+                  classSection.getMaxCapacity() + "," +
+                  classSection.getEnrolledStudentsSeparatedByPipe() + " ");
+          writer.write(System.lineSeparator());
+        }
+      } catch (Exception e) {
+        System.out.println("Error from first try statement in saveClassSection");
+        System.out.println(e);
+      }
+    }
+
+    try (FileWriter writer = new FileWriter(classSectionRecords, true)) {
+      if (classSectionRecords.length() > 0) {
         writer.write(System.lineSeparator());
       }
 
       writer.write(
           theClassSection.getId() + "," +
-              theClassSection.getCourse().getCourseId() + "," +
-              theClassSection.getInstructor().getId() + "," +
-              theClassSection.getClassroom().getRoomNumber() + "," +
+              theClassSection.getCourse() + "," +
+              theClassSection.getInstructor() + "," +
+              theClassSection.getClassroom() + "," +
               theClassSection.getSectionNumber() + "," +
               theClassSection.getMaxCapacity() + "," +
-              theClassSection.getEnrolledStudents().size());
+              theClassSection.getEnrolledStudentsSeparatedByPipe() + " "); // must be a blank space
+      System.out.println("If this message is displayed, classesssion.csv was updated with new student");
     } catch (Exception e) {
       System.out.println("This execption message is from SaveClassScection");
       System.out.println(e);
