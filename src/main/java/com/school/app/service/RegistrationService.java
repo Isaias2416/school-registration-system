@@ -165,19 +165,19 @@ public class RegistrationService {
     }
   }
 
-  public static void registerStudent(Student theStudent,
+  public static boolean registerStudent(Student theStudent,
       ClassSession theSection) {
 
     // preconditions: 1. Student is not it the class, 2. the "section"
     // is not full, and the credits are below 18
     if (theSection.getEnrolledStudents().contains(theStudent.getId())) {
       System.out.println("The student is already in the class");
-      return;
+      return false;
     }
     if (theSection.isFull()) {
       // Could throw an exception
       System.out.println("The class session is full");
-      return;
+      return false;
     }
 
     Course sectionCourse = CourseService.load().get(theSection.getCourse());
@@ -185,7 +185,7 @@ public class RegistrationService {
     if (theStudent.getCurrentCredits() +
         sectionCourse.getCredits() > 18) {
       System.out.println("Student and Course credits surpass 18");
-      return;
+      return false;
     }
     //
     //
@@ -193,7 +193,7 @@ public class RegistrationService {
 
     theSection.addEnrolledStudent(theStudent);
     saveClassSection(theSection);
-
+    return true;
   }
 
 }
