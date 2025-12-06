@@ -49,10 +49,14 @@ public class RegistrationService {
   }
 
   public ClassSession createClassSection(
-      Course theCourse,
-      Instructor theInstructor,
-      Classroom theClassroom,
+      String theCourseId,
+      String theInstructorId,
+      String theClassroomId,
       int theCapacity) throws SchoolException {
+
+    Instructor theInstructor = InstructorService.load().get(theInstructorId);
+    Course theCourse = CourseService.load().get(theCourseId);
+    // Classroom theClassroom = ClassroomService.load().get(theClassroomId);
 
     // Preconditions
     if (!theInstructor.canTeach(theCourse)) {
@@ -80,7 +84,7 @@ public class RegistrationService {
     // if so, increment the section number
     List<ClassSession> duplicatedclassSections = new ArrayList<>();
     for (ClassSession classSection : classSections.values()) {
-      if (classSection.getCourse().getCourseId().equals(theCourse.getCourseId())) {
+      if (classSection.getCourse().equals(theCourse.getCourseId())) {
         duplicatedclassSections.add(classSection);
       }
     }
