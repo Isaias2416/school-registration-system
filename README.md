@@ -26,6 +26,13 @@ A desktop administrative application for a college registrar.
 | ------------- | -------------- | -------------- |
 | Define setters for Student.java | Camille | Completed |
 | Define setters for Instructor.java | Isaias | Completed |
+| Define setters for Course.java | Isaias | In Progress |
+
+### CLI View
+| Task | Assigned To | Status |
+| ------------- | -------------- | -------------- |
+| Dashboard.java | Camille | In Progress |
+| Administration.java | Jhonatan | Completed |
 
 ## Project File Structure
 
@@ -57,6 +64,8 @@ school-registration-system
                         ├── view
                         │    └── cli
                         │        ├── Administration.java
+                        │        ├── ClassSectionCreator.java
+                        │        ├── StudentRegistrator.java
                         │        ├── Dashboard.java
                         │        └── MainMenu.java
                         └── Main.java
