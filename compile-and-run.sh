@@ -8,8 +8,11 @@
 
 # Use command below to run CLI version of app
 # Important to ignore module-info becuase it requires external packages
-find ./src/main/ -type f -name "[!module-info.java]*.java" >sources.txt
+find ./src/main/ \
+  -type f -name "*.java" \
+  -not -name "Main.java" \
+  -not -name "module-info.java" >sources.txt
 
 javac -d ./output/ @sources.txt
 
-java -cp ./output/ com.school.app.Main
+java -cp ./output/ com.school.app.MainCLI
