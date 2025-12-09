@@ -53,7 +53,8 @@ school-registration-system
     │   │               │        ├── StudentRegistrator.java
     │   │               │        ├── Dashboard.java
     │   │               │        └── MainMenu.java
-    │   │               └── Main.java
+    │   │               ├── Main.java
+    │   │               └── MainCLI.java
     │   └── module-info.java
     └── resources
         └── com
