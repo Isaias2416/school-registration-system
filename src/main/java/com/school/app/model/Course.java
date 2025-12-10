@@ -21,24 +21,25 @@ public class Course {
   public int getCredits() {
     return this.credits;
   }
-  //Setters
+
+  // Setters
   public void setCourseId(String courseId) {
-      this.courseId = courseId;
+    this.courseId = courseId;
   }
 
   public void setName(String name) {
-        this.name = name;
-    }
+    this.name = name;
+  }
 
   public void setCredits(int credits) {
-        this.credits = credits;
-    }
+    this.credits = credits;
+  }
 
   public String getCourseId() {
     return this.courseId;
   }
-  
-  public String getName(){
+
+  public String getName() {
     return this.name;
   }
 }
