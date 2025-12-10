@@ -1,4 +1,5 @@
-![Closed Pull Requests](img.shields.io<jhonatanparada499>/<school-registration-system>)
+![Close Pull Requests](img.shields.io<jhonatanparada499>/<school-registration-system>)
+
 # School Registration System
 A desktop administrative application for a college registrar.
 
