@@ -61,6 +61,10 @@ public class ClassSession {
     return this.id;
   }
 
+  public String getStringId() {
+    return String.valueOf(this.id);
+  }
+
   public String getCourse() {
     return this.course;
   }
