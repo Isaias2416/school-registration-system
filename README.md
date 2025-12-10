@@ -34,6 +34,8 @@ school-registration-system
     │   │               ├── controller
     │   │               │    ├── AdministrationSceneController.java
     │   │               │    ├── DashboardSceneController.java
+    │   │               │    ├── StudentSceneController.java
+    │   │               │    ├── FilterableComboBox.java
     │   │               │    └── MainSceneController.java
     │   │               ├── model
     │   │               │    ├── ClassSession.java
@@ -64,6 +66,7 @@ school-registration-system
                     └── view
                         ├── administrationScene.fxml
                         ├── dashboardScene.fxml
+                        ├── studentScene.fxml
                         └── mainScene.fxml
 ```
 
@@ -117,5 +120,5 @@ school-registration-system
 | ------------- | -------------- | -------------- |
 | administrationScene.fxml | Jhonatan | Completed |
 | dashboardScene.fxml | Jhonatan | Completed |
-| studentScene.fxml | Jhonatan | In Progress |
+| studentScene.fxml | Jhonatan | Completed |
 
