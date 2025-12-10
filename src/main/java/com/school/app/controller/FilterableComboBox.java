@@ -62,4 +62,14 @@ public class FilterableComboBox {
       }
     }
   }
+
+  public ComboBox<String> getComboBox() {
+    return this.comboBox;
+  }
+
+  public void setFilteredItems(ObservableList<String> filteredItems) {
+    this.originalList.clear();
+    this.originalList.addAll(filteredItems);
+  }
+
 }
