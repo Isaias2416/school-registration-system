@@ -33,6 +33,7 @@ school-registration-system
     │   │           └── app
     │   │               ├── controller
     │   │               │    ├── AdministrationSceneController.java
+    │   │               │    ├── DashboardSceneController.java
     │   │               │    └── MainSceneController.java
     │   │               ├── model
     │   │               │    ├── ClassSession.java
@@ -85,6 +86,7 @@ school-registration-system
 | CourseService.java | Isaias | Completed |
 | ClassroomService.java | Camille | Completed |
 | ClassSessionService.java | Jhonatan | Completed |
+| StudentService.java | Jhonatan | Completed |
 
 ### Setters
 | Task | Assigned To | Status |
@@ -98,7 +100,7 @@ school-registration-system
 | ------------- | -------------- | -------------- |
 | MainSceneController.java | Jhonatan | Completed |
 | AdministrationSceneController.java | Jhonatan | Completed |
-| DashboardSceneController.java | Jhonatan | In Progress |
+| DashboardSceneController.java | Jhonatan | Completed |
 
 
 ### CLI View
@@ -106,4 +108,14 @@ school-registration-system
 | ------------- | -------------- | -------------- |
 | Dashboard.java | Camille | Completed |
 | Administration.java | Jhonatan | Completed |
+| MainMenu.java | Jhonatan | Completed |
+| ClassSectionCreator.java | Jhonatan | Completed |
+| StudentRegistrator.java | Jhonatan | Completed |
+
+### GUI View
+| Task | Assigned To | Status |
+| ------------- | -------------- | -------------- |
+| administrationScene.fxml | Jhonatan | Completed |
+| dashboardScene.fxml | Jhonatan | Completed |
+| studentScene.fxml | Jhonatan | In Progress |
 
