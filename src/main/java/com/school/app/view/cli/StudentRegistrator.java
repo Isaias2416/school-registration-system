@@ -54,17 +54,19 @@ public class StudentRegistrator {
 
         // at this point student is not null
         Student student = students.get(studentIdChoice);
+        RegistrationService newRegistration = new RegistrationService();
 
-        completedForm = RegistrationService.registerStudent(
-            student,
-            classSection);
-
-        if (completedForm == false) {
+        try {
+          newRegistration.registerStudent(
+              student,
+              classSection);
+        } catch (Exception e) {
+          System.out.println(e.getMessage());
           System.out.println("Try again");
           continue;
         }
-
         completedForm = true;
+
         System.out.println("Student has been succesfully registered");
         Administration.display();
       }
