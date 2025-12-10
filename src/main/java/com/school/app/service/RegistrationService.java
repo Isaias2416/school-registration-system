@@ -58,14 +58,13 @@ public class RegistrationService {
     Course theCourse = CourseService.load().get(theCourseId);
     // Classroom theClassroom = ClassroomService.load().get(theClassroomId);
 
-    // Preconditions
-    // if (!theInstructor.canTeach(theCourse)) {
-    // throw new SchoolException("Instructor load exceeded");
-    // }
+    if (!theInstructor.canTeach(theCourse)) {
+      throw new SchoolException("Instructor can not teach that course.");
+    }
 
     if (theInstructor.getCurrentLoad() +
         theCourse.getCredits() > 9) {
-      throw new SchoolException("Instructor load exceeded");
+      throw new SchoolException("Instructor load exceeded.");
     }
 
     // get Classesctions from ClassSection.csv.
@@ -164,34 +163,30 @@ public class RegistrationService {
     }
   }
 
-  public static boolean registerStudent(Student theStudent,
-      ClassSession theSection) {
+  public void registerStudent(Student theStudent,
+      ClassSession theSection) throws SchoolException {
 
     // work needs to be done here
     // preconditions: 1. Student is not it the class, 2. the "section"
     // is not full, and the credits are below 18
     if (theSection.getEnrolledStudents().contains(theStudent.getId())) {
-      System.out.println("The student is already in the class");
-      return false;
+      throw new SchoolException("The student is already in the class");
     }
     if (theSection.isFull()) {
       // Could throw an exception
-      System.out.println("The class session is full");
-      return false;
+      throw new SchoolException("The class session is full");
     }
 
     Course sectionCourse = CourseService.load().get(theSection.getCourse());
     // Work in logic
     if (theStudent.getCurrentCredits() +
         sectionCourse.getCredits() > 18) {
-      System.out.println("Student and Course credits surpass 18");
-      return false;
+      throw new SchoolException("Student and Course credits surpass 18");
     }
     //
 
     theSection.addEnrolledStudent(theStudent);
     saveClassSection(theSection);
-    return true;
   }
 
 }
