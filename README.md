@@ -3,7 +3,9 @@
 ![Contributors](https://img.shields.io/github/contributors/jhonatanparada499/school-registration-system)
 
 # School Registration System
-A desktop administrative application for a college registrar.
+A desktop administrative application for a college registrar.  
+  
+![Administraion Tab](images/administration.png)
 
 ## Usage
 
