@@ -104,6 +104,6 @@ school-registration-system
 ### CLI View
 | Task | Assigned To | Status |
 | ------------- | -------------- | -------------- |
-| Dashboard.java | Camille | In Progress |
+| Dashboard.java | Camille | Completed |
 | Administration.java | Jhonatan | Completed |
 
