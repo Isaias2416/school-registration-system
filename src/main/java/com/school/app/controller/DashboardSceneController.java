@@ -1,12 +1,15 @@
 package com.school.app.controller;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.property.ReadOnlyObjectWrapper;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import com.school.app.model.ClassSession;
 import com.school.app.service.ClassSessionService;
@@ -15,6 +18,9 @@ import java.util.Map;
 
 public class DashboardSceneController {
   private Map<Integer, ClassSession> classSections;
+
+  @FXML
+  private Label LLastUpdated;
 
   @FXML
   private Button BRefresh;
@@ -26,10 +32,10 @@ public class DashboardSceneController {
   private TableColumn<ClassSession, Integer> idCol;
 
   @FXML
-  private TableColumn<ClassSession, Integer> courseIdCol;
+  private TableColumn<ClassSession, String> courseIdCol;
 
   @FXML
-  private TableColumn<ClassSession, Integer> enrolledCapacityCol;
+  private TableColumn<ClassSession, String> enrolledCapacityCol;
 
   @FXML
   private TableColumn<ClassSession, String> instructorCol;
@@ -38,13 +44,36 @@ public class DashboardSceneController {
   private TableColumn<ClassSession, String> roomIdCol;
 
   @FXML
-  private TableColumn<ClassSession, Integer> sectionNumberCol;
+  private TableColumn<ClassSession, String> sectionNumberCol;
 
+  // Work in formatted getters for table
   @FXML
   public void initialize() {
     classSections = ClassSessionService.load();
 
-    courseIdCol.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getId()));
+    idCol.setCellValueFactory(
+        new PropertyValueFactory<>("id"));
+
+    courseIdCol.setCellValueFactory(
+        new PropertyValueFactory<>("course"));
+
+    sectionNumberCol.setCellValueFactory(
+        new PropertyValueFactory<>("formatSectionNumber"));
+
+    instructorCol.setCellValueFactory(
+        new PropertyValueFactory<>("instructorName"));
+
+    roomIdCol.setCellValueFactory(
+        new PropertyValueFactory<>("classroom"));
+
+    enrolledCapacityCol.setCellValueFactory(
+        new PropertyValueFactory<>("enrolledCapacity"));
+
+    classSectionsTable.getItems().addAll(classSections.values());
+
+    LLastUpdated.setText(
+        LocalDateTime.now().format(
+            DateTimeFormatter.ofPattern("MMM dd, yyyy h:mm:ss a")));
   }
 
   @FXML
