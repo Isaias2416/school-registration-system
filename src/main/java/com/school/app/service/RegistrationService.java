@@ -31,7 +31,7 @@ public class RegistrationService {
   public static List<Instructor> findEligibleInstructors(Course theCourse) {
     if (theCourse == null) {
       System.out.print("The course is null");
-      System.exit(0);
+      return null;
     }
 
     List<Instructor> eligibleInstructors = new ArrayList<>();
