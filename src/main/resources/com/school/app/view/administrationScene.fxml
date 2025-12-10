@@ -67,12 +67,12 @@
                 
                 <VBox spacing="2.0">
                     <Label text="Student ID:" />
-               <TextField fx:id="TFStudentId" />
+               <ComboBox fx:id="CBStudentId" editable="true" prefWidth="150.0" />
                 </VBox>
 
                 <VBox spacing="2.0">
                     <Label text="Section ID:" />
-               <TextField fx:id="TFClassSectionId" />
+               <ComboBox fx:id="CBClassSectionId" editable="true" prefWidth="150.0" />
                 </VBox>
                 
                 <Button fx:id="BRegister" mnemonicParsing="false" onAction="#registerStudent" text="Register" />
