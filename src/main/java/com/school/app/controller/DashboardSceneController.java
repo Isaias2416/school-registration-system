@@ -80,5 +80,11 @@ public class DashboardSceneController {
   void refreshTable(ActionEvent event) {
     classSections = ClassSessionService.load();
 
+    classSectionsTable.getItems().clear();
+    classSectionsTable.getItems().addAll(classSections.values());
+
+    LLastUpdated.setText(
+        LocalDateTime.now().format(
+            DateTimeFormatter.ofPattern("MMM dd, yyyy h:mm:ss a")));
   }
 }
