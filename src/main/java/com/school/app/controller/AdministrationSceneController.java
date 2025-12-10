@@ -77,8 +77,35 @@ public class AdministrationSceneController {
   //
   @FXML
   public void initialize() {
-    LStudentMessage.setText("");
-    LClassSectionMessage.setText("");
+    // load courses
+    Map<String, Course> courses = CourseService.load();
+    // courseids gets the course ids Strings as an List<String>
+    courseIds = FXCollections.observableArrayList(
+        courses.values().stream().map(Course::getCourseId).collect(Collectors.toList()));
+
+    Map<String, Classroom> classrooms = ClassroomService.load();
+
+    // get classroom ids
+    classroomIds = FXCollections.observableArrayList(
+        classrooms.values().stream().map(Classroom::getRoomNumber).collect(Collectors.toList()));
+
+    // get instructor ids
+    Map<String, Instructor> instructors = InstructorService.load();
+    instructorIds = FXCollections.observableArrayList(
+        instructors.values().stream().map(Instructor::getId).collect(Collectors.toList()));
+
+    // helper class for comboboxes courses ids and classroomcs
+    new FilterableComboBox(CBCourseId, courseIds);
+    new FilterableComboBox(CBInstructorId, instructorIds);
+    new FilterableComboBox(CBClassroomId, classroomIds);
+
+    // initialize alert windows
+    String title = "School Registration System";
+    infoAlert = new Alert(Alert.AlertType.INFORMATION);
+    infoAlert.setTitle(title);
+
+    errorAlert = new Alert(Alert.AlertType.ERROR);
+    errorAlert.setTitle(title);
   }
 
   //
