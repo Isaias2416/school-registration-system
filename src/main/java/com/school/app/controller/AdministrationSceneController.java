@@ -53,6 +53,8 @@ public class AdministrationSceneController {
   @FXML
   private ComboBox<String> CBClassSectionId;
 
+  FilterableComboBox CBClassSection;
+
   @FXML
   private Button BRegister;
 
@@ -111,7 +113,7 @@ public class AdministrationSceneController {
     // helper class for student ids and classrooms
     new FilterableComboBox(CBClassroomId, classroomIds);
     new FilterableComboBox(CBStudentId, studentIds);
-    new FilterableComboBox(CBClassSectionId, classSectionIds);
+    CBClassSection = new FilterableComboBox(CBClassSectionId, classSectionIds);
 
     // attach listener to when the combobox dropdown is displayed and hidden
     CBCourse.getComboBox().showingProperty().addListener((obs, wasShowing, isNowShowing) -> {
@@ -219,7 +221,7 @@ public class AdministrationSceneController {
       // write new class sectio to csv file
       RegistrationService.saveClassSection(newClassSection);
       // add new section id to class sections combobox
-      CBClassSectionId.getItems().add(newClassSection.getStringId());
+      CBClassSection.getComboBox().getItems().add(newClassSection.getStringId());
 
     } catch (Exception e) {
       errorAlert.setContentText(e.getMessage());
