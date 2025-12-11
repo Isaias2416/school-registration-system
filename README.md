@@ -7,6 +7,13 @@ A desktop administrative application for a college registrar.
   
 ![Administraion Tab](images/administration.png)
 
+## Table of Contents
+* [Usage](#usage)
+* [Project File Structure](#project-file-structure)
+* [Task Distribution Table](#task-distribution-table)
+* [Project Tweaks & Modifications](#project-tweaks-&-modifications)
+* [Architecture Diagram](#architecture-diagram)
+
 ## Usage
 
 To run the CLI application, use this command:
