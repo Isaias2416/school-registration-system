@@ -11,7 +11,7 @@ A desktop administrative application for a college registrar.
 * [Usage](#usage)
 * [Project File Structure](#project-file-structure)
 * [Task Distribution Table](#task-distribution-table)
-* [Project Tweaks & Modifications](#project-tweaks-&-modifications)
+* [Project Modifications](#project-modifications)
 * [Architecture Diagram](#architecture-diagram)
 
 ## Usage
@@ -137,7 +137,7 @@ school-registration-system
 | studentScene.fxml | Jhonatan | Completed |
 | mainScene.fxml | Jhonatan | Completed |
 
-## Project Tweaks & Modifications
+## Project Modifications
 
 In the description of Project1.pdf it is not specified to create the ClassSession.csv file present in this repository. However, the ClassSession.java and ClassSessionService.java files are. So, I thought it would be natural to include a ClassSession.csv file just like the other CSV files have their corresponding service and model counterparts. This helped us to make the application more modular.  
   
