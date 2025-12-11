@@ -13,7 +13,7 @@ find ./src/main/ \
   -not -name "Main.java" \
   -not -name "module-info.java" \
   -not -name "*Controller.java" \
-  -not -name "FilterableCombobox.java">sources.txt
+  -not -name "FilterableComboBox.java">sources.txt
 
 javac -d ./output/ @sources.txt
 
