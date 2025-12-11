@@ -59,12 +59,14 @@ public class RegistrationService {
     // Classroom theClassroom = ClassroomService.load().get(theClassroomId);
 
     if (!theInstructor.canTeach(theCourse)) {
-      throw new SchoolException("Instructor can not teach that course.");
+      throw new SchoolException("Instructor cannot teach that course.");
     }
 
     if (theInstructor.getCurrentLoad() +
         theCourse.getCredits() > 9) {
-      throw new SchoolException("Instructor load exceeded.");
+      String message = "Error: " + theInstructor.getName() +
+          " has reached the maximum teaching load.";
+      throw new SchoolException(message);
     }
 
     // get Classesctions from ClassSection.csv.
@@ -170,7 +172,7 @@ public class RegistrationService {
     // preconditions: 1. Student is not it the class, 2. the "section"
     // is not full, and the credits are below 18
     if (theSection.getEnrolledStudents().contains(theStudent.getId())) {
-      throw new SchoolException("The student is already in the class");
+      throw new SchoolException("Error: The student is already in the class.");
     }
     if (theSection.isFull()) {
       // Could throw an exception
@@ -181,7 +183,8 @@ public class RegistrationService {
     // Work in logic
     if (theStudent.getCurrentCredits() +
         sectionCourse.getCredits() > 18) {
-      throw new SchoolException("Student and Course credits surpass 18");
+      throw new SchoolException(
+          "Error: Registration would exceed maximum semester credits (18).");
     }
     //
 
